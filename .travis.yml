@@ -1,0 +1,11 @@
+sudo: true
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      if: branch = master
+      script:
+      - docker build -t $DOCKER_USERNAME/nginx-php .
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker push $DOCKER_USERNAME/tinyrss
