@@ -1,11 +1,14 @@
 sudo: true
 dist: trusty
-
 jobs:
   include:
-    - stage: build docker image
-      if: branch = master
-      script:
-      - docker build -t $DOCKER_USERNAME/nginx-php .
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker push $DOCKER_USERNAME/tinyrss
+  - stage: build docker image
+    if: branch = master
+    script:
+    - docker build -t $DOCKER_USERNAME/nginx-php .
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push $DOCKER_USERNAME/tinyrss
+env:
+  global:
+  - secure: nYhY8YrY/0/JWMAn/J13ni3/yofpV5zbltyUATxVpTPCsNLgWg5oJ+TslXVTob4LGcmo7uRR3UYKOIgqSP0lEP5bu23ohvqUwEMN17+3p6KlEwD8yUZbwSD71v3u72EaNrfHVA6Fe23kVbLYvAyQhZ9VyHEgoRtI1zH3xVa7fDez2XSwecpaPYzZ7gO+RVoVuN/YyZucWz0pJcLhG9El2b5/EBP3TJzpLCmjO4m5Q3/gujBqbaejwYcSQ+M95BsjKWXfYsI1yBoDI5jQqTU0hra+02jybRnj/lXfaOOYzt6TDmHV9BwMuO7kzuZwT4bdx+lhFSgV2kU9Qtucs+CqR2QBmIwmkxF6A69dQJ2usSg5b4xar7D7JLbOPQkxBXz+1lEHMwNu57GCE0pTK774Jz02X9GiI/fvT/KuTPis1Epic2cyh5ZsDwwzstSoMsZdTvzhxeT1+PdMiF3UHu+OIbVcODj28MSfmnRSXjpy4oJCDGX8cUamrsSoNa48ahfAZHQCYE3Zes4aX0qIG5vyeKBbWNy+5LfPAsWkK37BJW23+QZxnOhddPbZZzEFkw1gkO2Ypm+jPbVsgoI0NxeSSYhgiGVUqvBrjqPOakDlf6OkqXTOwzu2LmgqZxuwQb3TU2K2BGDdmgCzMXZlo48w2LnrxsvoSMOI9Mh55pVrSNc=
+  - secure: ZnSi1iV/fBeQbTMd5Ylu/Z+qub/DotOvO9YtLjak94AS7xbZtodydffQAt8pc6vDADBoEI/69SELmh92BJwU7eGGvBlCxAAZYrFX5E1+xM5SwqbdkhVsM+BLvWnkxpgEZN7eqNX1pMnwHBXusGA8J2Kfx6T68I9Hjglg2XZW5ThDnvkBYxx3Fw0ezl9ZJ1om6EtROTbtEgzBAXervzD5fCJFQkOQM0EpcUGZ9O1QKY78RGOBWYzKd1WVovgVLLO1ENdsQfa5wqY4uQ5PBQZEPlrAmaqqUlpulgnN20bhaGq8oMZv+xwzr0DaLNsVqZ/XBXBqYI47TCRsR+kkscP4q7Ma/8snXJBr2kR4ywVd1ZVFaG/YYYQV9o5bzDsGlvjfApuZaYierzrmzP38mo9iSMz/39itihBFUOTJCtkoE25gJyyHtNcx+xnHdhXYlgh2FE6Qk2Z+barPgB8XQe9Se4uIBtp0yyvhbswvCGX2T7O4ekWti+xJ1pz7KqN/pSzj/q4EoZMe4fN3qev4tJ42ovxcWo2GNlzmWSvfs/rMIEiViKKgdZqem+bLZiFqCpYYO2omBVbx8wF6h2vx630t2lKLIYKNNSfYGIs+VGWx0RJ6SFmR8HY0TDuBBGZgLtdvxYlOquWg1uqN5uyQQkeLEVfGnqLVhqfPlJTwYg0A85A=
