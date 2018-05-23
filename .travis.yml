@@ -7,7 +7,7 @@ jobs:
     script:
     - docker build -t $DOCKER_USERNAME/nginx-php .
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push $DOCKER_USERNAME/tinyrss
+    - docker push $DOCKER_USERNAME/docker-tinyrss
 env:
   global:
   - secure: nYhY8YrY/0/JWMAn/J13ni3/yofpV5zbltyUATxVpTPCsNLgWg5oJ+TslXVTob4LGcmo7uRR3UYKOIgqSP0lEP5bu23ohvqUwEMN17+3p6KlEwD8yUZbwSD71v3u72EaNrfHVA6Fe23kVbLYvAyQhZ9VyHEgoRtI1zH3xVa7fDez2XSwecpaPYzZ7gO+RVoVuN/YyZucWz0pJcLhG9El2b5/EBP3TJzpLCmjO4m5Q3/gujBqbaejwYcSQ+M95BsjKWXfYsI1yBoDI5jQqTU0hra+02jybRnj/lXfaOOYzt6TDmHV9BwMuO7kzuZwT4bdx+lhFSgV2kU9Qtucs+CqR2QBmIwmkxF6A69dQJ2usSg5b4xar7D7JLbOPQkxBXz+1lEHMwNu57GCE0pTK774Jz02X9GiI/fvT/KuTPis1Epic2cyh5ZsDwwzstSoMsZdTvzhxeT1+PdMiF3UHu+OIbVcODj28MSfmnRSXjpy4oJCDGX8cUamrsSoNa48ahfAZHQCYE3Zes4aX0qIG5vyeKBbWNy+5LfPAsWkK37BJW23+QZxnOhddPbZZzEFkw1gkO2Ypm+jPbVsgoI0NxeSSYhgiGVUqvBrjqPOakDlf6OkqXTOwzu2LmgqZxuwQb3TU2K2BGDdmgCzMXZlo48w2LnrxsvoSMOI9Mh55pVrSNc=
